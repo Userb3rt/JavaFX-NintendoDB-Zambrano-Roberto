@@ -5,8 +5,6 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
-ssss
-
 public class Main extends Application {
 
     public static AppData appData = AppData.getInstance();
