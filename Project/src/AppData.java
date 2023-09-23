@@ -63,4 +63,34 @@ public class AppData {
             }
         }).start();
     }
+
+    boolean dataReady (String type) {
+        switch (type) {
+        case "Consoles": return readyConsoles;
+        case "Jocs": return readyJocs;
+        case "Personatges": return readyPersonatges;
+        }
+        return false;
+    }
+
+    JSONArray getData (String type) {
+        switch (type) {
+        case "Consoles": return dataConsoles;
+        case "Jocs": return dataJocs;
+        case "Personatges": return dataPersonatges;
+        }
+        return null;
+        }
+    
+    public JSONObject getItemData(String type, int index) {
+        if (dataReady(type)) {
+            JSONArray dataArray = getData(type);
+                if (dataArray != null && index >= 0 && index < dataArray.length()) {
+                    return dataArray.getJSONObject(index);
+                }
+            }
+            return null;
+            }
+            
+        
 }
