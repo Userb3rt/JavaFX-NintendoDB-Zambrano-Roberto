@@ -6,7 +6,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.function.Consumer;
 
 import org.json.JSONArray;
-import org.json.JSONObject;s
+import org.json.JSONObject;
 
 import javafx.application.Platform;
 
