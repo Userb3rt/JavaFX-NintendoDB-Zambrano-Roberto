@@ -18,11 +18,11 @@
             </Label>
          </children>
       </AnchorPane>
-      <ChoiceBox prefWidth="200.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="65.0" />
+      <ChoiceBox fx:id="choiceBox" prefWidth="200.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="65.0" />
       <AnchorPane fx:id="info" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="225.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="70.0" />
-      <ScrollPane fx:id="yPane" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="100.0">
+      <ScrollPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="100.0">
          <content>
-            <VBox />
+            <VBox fx:id="yPane" />
          </content>
       </ScrollPane>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" />

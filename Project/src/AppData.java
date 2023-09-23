@@ -6,13 +6,21 @@ import java.nio.charset.StandardCharsets;
 import java.util.function.Consumer;
 
 import org.json.JSONArray;
-import org.json.JSONObject;
+import org.json.JSONObject;s
 
 import javafx.application.Platform;
 
 public class AppData {
 
     private static AppData instance = null;
+
+    public boolean readyConsoles = false;
+    public boolean readyJocs = false;
+    public boolean readyPersonatges = false;
+
+    public JSONArray dataConsoles = null;
+    public JSONArray dataJocs = null;
+    public JSONArray dataPersonatges = null;
 
     private AppData() { }
 
