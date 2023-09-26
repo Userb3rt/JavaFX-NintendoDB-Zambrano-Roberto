@@ -80,7 +80,7 @@ public class AppData {
         case "Personatges": return dataPersonatges;
         }
         return null;
-        }
+    }
     
     public JSONObject getItemData(String type, int index) {
         if (dataReady(type)) {
@@ -90,7 +90,46 @@ public class AppData {
                 }
             }
             return null;
+    }
+    public void load(String type, Consumer<String> callBack) {
+        // Si les dades ja estàn carregades, no cal fer res
+        if (dataReady(type)) {
+          callBack.accept("OK");
+          return;
+        }
+      
+        // Seleccionem l'arxiu d'on s'han de carregar les dades
+        String arxiu = "";
+        switch (type) {
+          case "Consoles": arxiu = "/assets/data/consoles.json"; break;
+          case "Jocs": arxiu = "/assets/data/jocs.json"; break;
+          case "Personatges": arxiu = "/assets/data/personatges.json"; break;
+          default: throw new IllegalArgumentException("Tipus desconegut: " + type);
+        }
+        loadData(arxiu, (receivedData) -> {
+            if (receivedData == null) {
+              callBack.accept(null);
+              return;
+            } else {
+              // Guardem les dades carregades en format JSON
+              JSONArray dadesArxiu = new JSONArray(receivedData);
+              switch (type) {
+                case "Consoles":
+                  readyConsoles = true;
+                  dataConsoles = dadesArxiu;
+                  break;
+                case "Jocs":
+                  readyJocs = true;
+                  dataJocs = dadesArxiu;
+                  break;
+                case "Personatges":
+                  readyPersonatges = true;
+                  dataPersonatges = dadesArxiu;
+                  break;
+              }
+              callBack.accept("OK");
             }
-            
+          });
+        }
         
 }
