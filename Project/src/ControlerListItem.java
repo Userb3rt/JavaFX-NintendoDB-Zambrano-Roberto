@@ -8,6 +8,9 @@ public class ControlerListItem {
     private ImageView img;
 
     @FXML
+    private Label title = new Label();
+
+    @FXML
     private Label text = new Label();
 
     public void setText(String text){
@@ -17,6 +20,12 @@ public class ControlerListItem {
     public void setImage(String resourceName){
         ClassLoader classLoader = getClass().getClassLoader();
         Image image = new Image(classLoader.getResourceAsStream(resourceName));
-        image.setImage(image);
+        img.setImage(image);
+    }
+
+    public void setTitle(String text) {
+
+        // Estableix el contingut del Label
+        this.title.setText(text);
     }
 }
